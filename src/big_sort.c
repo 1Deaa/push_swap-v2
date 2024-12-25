@@ -55,30 +55,33 @@ static void call_repeat(t_Node **b, int partition_size)
 	}
 }
 
-void big_sort(t_Node **a, t_Node **b, int *array, int argc)
+void big_sort(t_Node **a, t_Node **b, int *array, int size)
 {
-	int partition_size;
-	int original_size;
-	int start;
-	int push_count;
+	int	partition_size;
+	int	original_size;
+	int	start;
+	int	push_count;
 
 	push_count = 0;
 	start = 0;
-	partition_size = (argc - 1) / 5;
+	partition_size = size / 5;
 	original_size = partition_size;
-	while (*a)
+	while (push_count != (size - (size % 5)))
 	{
+		if (push_count == partition_size)
+		{
+			partition_size += original_size;
+			start += original_size;
+			if (push_count != original_size)
+				call_repeat(b, original_size);
+		}
 		if (search_array(array, (*a)->data, start, partition_size - 1))
 		{
 			pb(a, b);
 			push_count++;
 		}
-		if (start == partition_size)
-		{
-			partition_size += original_size;
-			start += original_size;
-			call_repeat(b, original_size);
-		}
 		ra(a);
 	}
+	while (*a)
+		pb(a, b);
 }

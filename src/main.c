@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	array = quick_fill_sort(&a, argc);
-	big_sort(&a, &b, array, argc);
+	big_sort(&a, &b, array, argc - 1);
 	free(array);
 	deallocate_list(&a);
 }
