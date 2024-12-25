@@ -3,7 +3,7 @@ NAME = push_swap
 
 #DIRECTORIES
 FILES	=	main.c sort_util_a.c sort_util_b.c tiny_sort.c is_arranged.c find_highest.c \
-			find_smallest.c ft_atoi.c handle_error.c list_util.c array_util.c
+			find_smallest.c ft_atoi.c handle_error.c list_util.c array_util.c big_sort.c
 
 SRCS_DIR= src
 SRCS	= $(addprefix $(SRCS_DIR)/, $(FILES))
