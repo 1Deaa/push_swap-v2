@@ -6,7 +6,7 @@
 /*   By: drahwanj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 14:51:42 by drahwanj          #+#    #+#             */
-/*   Updated: 2024/12/25 14:51:43 by drahwanj         ###   ########.fr       */
+/*   Updated: 2024/12/25 17:00:00 by drahwanj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	deallocate_list(t_Node **list);
 void	fill_list(t_Node **list, char **argv, int argc);
 void	print_list(t_Node **list);
 int		is_arranged(t_Node **list);
-t_Node		*find_highest(t_Node **list);
-t_Node		*find_smallest(t_Node **list);
+t_Node	*find_highest(t_Node **list);
+t_Node	*find_smallest(t_Node **list);
 int		ft_atoi(const char *str, t_Node **list);
 int		*quick_fill_sort(t_Node **a, int argc);
 
