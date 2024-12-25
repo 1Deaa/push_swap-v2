@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_two(t_Node *a)
+void	sort_two(t_Node **a)
 {
 	if (is_arranged(a) != 1)
 	{
@@ -20,32 +20,32 @@ void	sort_two(t_Node *a)
 	}
 }
 
-void	sort_three(t_Node *a)
+void	sort_three(t_Node **a)
 {
-	int	highest_number;
+	t_Node	*highest_node;
 
-	highest_number = find_highest(a);
-	if (a->data == highest_number)
+	highest_node = find_highest(a);
+	if (*a == highest_node)
 		ra(a);
-	else if (a->next->data == highest_number)
+	else if ((*a)->next == highest_node)
 		rra(a);
-	if (a->data > a->next->data)
+	if ((*a)->data > (*a)->next->data)
 		sa(a);
 }
 
-void	sort_four(t_Node *a, t_Node *b)
+void	sort_four(t_Node **a, t_Node **b)
 {
-	int	smallest_number;
+	t_Node	*smallest_node;
 
-	smallest_number = find_smallest(a);
-	if (a->data == smallest_number)
+	smallest_node = find_smallest(a);
+	if (*a == smallest_node)
 		pb(a, b);
-	else if (a->next->data == smallest_number)
+	else if ((*a)->next == smallest_node)
 	{
 		ra(a);
 		pb(a, b);
 	}
-	else if (a->next->next->data == smallest_number)
+	else if ((*a)->next->next == smallest_node)
 	{
 		rra(a);
 		rra(a);
@@ -60,7 +60,7 @@ void	sort_four(t_Node *a, t_Node *b)
 	pa(a, b);
 }
 
-void	tiny_sort(t_Node *a, t_Node *b, int argc)
+void	tiny_sort(t_Node **a, t_Node **b, int argc)
 {
 	if (argc == 3)
 		sort_two(a);

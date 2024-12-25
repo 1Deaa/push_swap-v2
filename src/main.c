@@ -18,17 +18,19 @@ int	main(int argc, char **argv)
 	t_Node	*b;
 	int		*array;
 
+	(void)array;
 	b = NULL;
 	a = NULL;
 	fill_list(&a, argv, argc);
-	if (is_arranged == 1 || argc < 3)
+	if (is_arranged(&a) == 1 || argc < 3)
 	{
 		deallocate_list(&a);
 		return (0);
 	}
 	else if (argc < 6)
 	{
-		tiny_sort(a, b, argc);
+		tiny_sort(&a, &b, argc);
+		print_list(&a);
 		deallocate_list(&a);
 		return (0);
 	}

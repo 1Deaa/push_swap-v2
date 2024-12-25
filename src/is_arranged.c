@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-int	is_arranged(t_Node *list)
+int	is_arranged(t_Node **list)
 {
 	t_Node	*curr;
 
-	curr = list;
+	curr = *list;
 	while (curr != NULL && curr->next != NULL)
 	{
 		if (curr->data > curr->next->data)

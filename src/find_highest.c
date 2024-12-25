@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-int	find_highest(t_Node *list)
+t_Node	*find_highest(t_Node **list)
 {
 	t_Node	*highest;
 	t_Node	*curr;
 
-	if (list == NULL)
+	if (*list == NULL)
 		return (NULL);
-	highest = list;
-	curr = list->next;
+	highest = *list;
+	curr = (*list)->next;
 	while (curr != NULL)
 	{
 		if (curr->data > highest->data)
 			highest = curr;
 		curr = curr->next;
 	}
-	return (highest->data);
+	return (highest);
 }

@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	handle_error(t_Node *list)
+void	handle_error(t_Node **list)
 {
-	deallocate_list(&list);
+	deallocate_list(list);
 	ft_printf("Error\n");
 	exit(2);
 }

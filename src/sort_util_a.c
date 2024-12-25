@@ -12,67 +12,67 @@
 
 #include "push_swap.h"
 
-void	ra(t_Node *a)
+void	ra(t_Node **a)
 {
 	t_Node	*first;
 	t_Node	*last;
 
-	if (a == NULL || a->next == NULL)
+	if (*a == NULL || (*a)->next == NULL)
 		return ;
-	first = a;
-	last = a;
+	first = *a;
+	last = *a;
 	while (last->next != NULL)
 		last = last->next;
-	a = first->next;
+	*a = first->next;
 	last->next = first;
 	first->next = NULL;
 	write(1, "ra\n", 3);
 }
 
-void	rra(t_Node *a)
+void	rra(t_Node **a)
 {
 	t_Node	*second_last;
 	t_Node	*last;
 
-	if (a == NULL || a->next == NULL)
+	if (*a == NULL || (*a)->next == NULL)
 		return ;
 	second_last = NULL;
-	last = a;
+	last = *a;
 	while (last->next != NULL)
 	{
 		second_last = last;
 		last = last->next;
 	}
 	second_last->next = NULL;
-	last->next = a;
-	a = last;
+	last->next = *a;
+	*a = last;
 	write(1, "rra\n", 4);
 }
 
-void	pa(t_Node *a, t_Node *b)
+void	pa(t_Node **a, t_Node **b)
 {
 	t_Node	*temp;
 
-	if (b == NULL)
+	if (*b == NULL)
 		return ;
-	temp = b;
-	b = b->next;
-	temp->next = a;
-	a = temp;
+	temp = *b;
+	*b = (*b)->next;
+	temp->next = *a;
+	*a = temp;
 	write(1, "pa\n", 3);
 }
 
-void	sa(t_Node *a)
+void	sa(t_Node **a)
 {
 	t_Node	*first;
 	t_Node	*second;
 
-	first = a;
-	second = a->next;
-	if (a == NULL || a->next == NULL)
+	first = *a;
+	second = (*a)->next;
+	if (*a == NULL || (*a)->next == NULL)
 		return ;
 	first->next = second->next;
 	second->next = first;
-	a = second;
+	*a = second;
 	write(1, "sa\n", 3);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	ft_atoi_error(const char *str, t_Node *list, int sign, long result)
+static void	ft_atoi_error(const char *str, t_Node **list, int sign, long result)
 {
 	if (sign == 1 && (result > ((INT_MAX) - (*str - '0')) / 10))
 		handle_error(list);
@@ -20,7 +20,7 @@ static void	ft_atoi_error(const char *str, t_Node *list, int sign, long result)
 		handle_error(list);
 }
 
-int	ft_atoi(const char *str, t_Node *list)
+int	ft_atoi(const char *str, t_Node **list)
 {
 	long	result;
 	int		sign;

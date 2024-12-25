@@ -19,7 +19,7 @@ static void	insert_end(t_Node **list, int value)
 
 	newnode = malloc(sizeof(t_Node));
 	if (newnode == NULL)
-		handle_error(*list);
+		handle_error(list);
 	newnode->data = value;
 	newnode->next = NULL;
 	if (*list == NULL)
@@ -42,16 +42,16 @@ void	fill_list(t_Node **list, char **argv, int argc)
 	i = 1;
 	while (i < argc)
 	{
-		insert_end(list, ft_atoi(argv[i], *list));
+		insert_end(list, ft_atoi(argv[i], list));
 		i++;
 	}
 }
 
-void	print_list(t_Node *list)
+void	print_list(t_Node **list)
 {
 	t_Node	*curr;
 
-	curr = list;
+	curr = *list;
 	while (curr != NULL)
 	{
 		ft_printf("Data %d\n", curr->data);

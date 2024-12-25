@@ -70,7 +70,7 @@ int	*quick_fill_sort(t_Node **a, int argc)
 	if (array == NULL)
 	{
 		free(array);
-		handle_error(*a);
+		handle_error(a);
 	}
 	i = 0;
 	loop = *a;

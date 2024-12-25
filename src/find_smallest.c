@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-int	find_smallest(t_Node *list)
+t_Node	*find_smallest(t_Node **list)
 {
 	t_Node	*smallest;
 	t_Node	*curr;
 
-	if (list == NULL)
+	if (*list == NULL)
 		return (NULL);
-	smallest = list;
-	curr = list->next;
+	smallest = *list;
+	curr = (*list)->next;
 	while (curr != NULL)
 	{
 		if (curr->data < smallest->data)
 			smallest = curr;
 		curr = curr->next;
 	}
-	return (smallest->data);
+	return (smallest);
 }
