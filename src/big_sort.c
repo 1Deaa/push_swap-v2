@@ -6,7 +6,7 @@
 /*   By: drahwanj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 23:04:23 by drahwanj          #+#    #+#             */
-/*   Updated: 2024/12/25 23:04:24 by drahwanj         ###   ########.fr       */
+/*   Updated: 2024/12/26 15:14:41 by drahwanj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	divide(t_Node **b, int partition_size)
 
 void	process_b(t_Node **a, t_Node **b, int *array, t_partition_info *info)
 {
-	while (info->push_count <= info->array_size)
+	while (info->push_count <= (info->array_size) - 1)
 	{
 		if (info->push_count == info->part_size)
 		{
@@ -73,6 +73,7 @@ void	process_b(t_Node **a, t_Node **b, int *array, t_partition_info *info)
 		}
 		ra(a);
 	}
+	divide(b, info->original_size);
 	while (*a)
 		pb(a, b);
 }
