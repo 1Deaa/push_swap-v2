@@ -66,7 +66,7 @@ void big_sort(t_Node **a, t_Node **b, int *array, int size)
 	start = 0;
 	partition_size = size / 5;
 	original_size = partition_size;
-	while (push_count != (size - (size % 5)))
+	while (push_count <= (size - (size % 5)))
 	{
 		if (push_count == partition_size)
 		{
