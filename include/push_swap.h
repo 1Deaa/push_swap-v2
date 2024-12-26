@@ -25,6 +25,15 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_Node;
 
+typedef struct s_parition_info
+{
+	int	part_size;
+	int	original_size;
+	int	start;
+	int	push_count;
+	int	array_size;
+}	t_partition_info;
+
 void	ra(t_Node **a);
 void	rra(t_Node **a);
 void	pa(t_Node **a, t_Node **b);
