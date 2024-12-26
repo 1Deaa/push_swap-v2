@@ -55,7 +55,7 @@ static void	divide(t_Node **b, int partition_size)
 	}
 }
 
-void	process(t_Node **a, t_Node **b, int *array, t_partition_info *info)
+void	process_b(t_Node **a, t_Node **b, int *array, t_partition_info *info)
 {
 	while (info->push_count <= info->array_size)
 	{
@@ -73,6 +73,8 @@ void	process(t_Node **a, t_Node **b, int *array, t_partition_info *info)
 		}
 		ra(a);
 	}
+	while (*a)
+		pb(a, b);
 }
 
 void	big_sort(t_Node **a, t_Node **b, int *array, int size)
@@ -84,7 +86,5 @@ void	big_sort(t_Node **a, t_Node **b, int *array, int size)
 	info.original_size = size / 5;
 	info.part_size = info.original_size;
 	info.array_size = size - (size % 5);
-	process(a, b, array, &info);
-	while (*a)
-		pb(a, b);
+	process_b(a, b, array, &info);
 }
