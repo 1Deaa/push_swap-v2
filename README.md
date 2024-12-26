@@ -1,4 +1,4 @@
-# PUSH_SWAP V2
+# PUSH_SWAP
 
 Given a set of integers, sort it using a predefined set of instructions using two stacks.
 
