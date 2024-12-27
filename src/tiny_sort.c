@@ -60,6 +60,32 @@ void	sort_four(t_Node **a, t_Node **b)
 	pa(a, b);
 }
 
+void	sort_five(t_Node **a, t_Node **b)
+{
+	t_Node	*smallest_node;
+
+	smallest_node = find_smallest(a);
+	if ((*a)->next == smallest_node)
+		ra(a);
+	else if ((*a)->next->next == smallest_node)
+	{
+		ra(a);
+		ra(a);
+	}
+	else if ((*a)->next->next->next == smallest_node)
+	{
+		rra(a);
+		rra(a);
+	}
+	else if ((*a)->next->next->next->next == smallest_node)
+		rra(a);
+	if (is_arranged(a))
+		return ;
+	pb(a, b);
+	sort_four(a, b);
+	pa(a, b);
+}
+
 void	tiny_sort(t_Node **a, t_Node **b, int argc)
 {
 	if (argc == 3)
@@ -68,4 +94,6 @@ void	tiny_sort(t_Node **a, t_Node **b, int argc)
 		sort_three(a);
 	else if (argc == 5)
 		sort_four(a, b);
+	else if (argc == 6)
+		sort_five(a, b);
 }
