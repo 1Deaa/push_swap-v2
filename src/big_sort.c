@@ -6,7 +6,7 @@
 /*   By: drahwanj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 23:04:23 by drahwanj          #+#    #+#             */
-/*   Updated: 2024/12/26 15:14:41 by drahwanj         ###   ########.fr       */
+/*   Updated: 2024/12/27 19:41:10 by drahwanj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,11 @@ static int	search_array(int *array, int target, int start, int end)
 	return (0);
 }
 
-/*static void	divide(t_Node **b, int partition_size)
-{
-	int	i;
-
-	i = 0;
-	while (i < partition_size / 2)
-	{
-		rb(b);
-		i++;
-	}
-}*/
-
 void	process_a(t_Node **a, t_Node **b, int size)
 {
 	int	highest;
-	int position;
+	int	position;
+
 	highest = (find_highest(b))->data;
 	position = get_position(b, highest);
 	if (position < size / 2)
@@ -60,16 +49,15 @@ void	process_a(t_Node **a, t_Node **b, int size)
 
 void	process_b(t_Node **a, t_Node **b, int *array, t_partition_info *info)
 {
-	while ((info->array_size - info->push_count) / 4)
+	while ((info->array_size - info->push_count) / info->di)
 	{
 		if (info->push_count == info->part_size)
 		{
-			info->part_size += (info->array_size - info->push_count) / 4;
+			info->part_size += (info->array_size - info->push_count) / info->di;
 			info->start += info->push_count_last;
-			//if (info->push_count != info->original_size)
-				//divide(b, info->original_size);
 		}
-		if (search_array(array, (*a)->data, info->start, info->part_size - 1))
+		while (search_array(array, (*a)->data,
+				info->start, info->part_size - 1))
 		{
 			pb(a, b);
 			info->push_count++;
@@ -77,7 +65,6 @@ void	process_b(t_Node **a, t_Node **b, int *array, t_partition_info *info)
 		}
 		ra(a);
 	}
-	//divide(b, info->original_size);
 	while (*a)
 		pb(a, b);
 }
@@ -86,12 +73,12 @@ void	big_sort(t_Node **a, t_Node **b, int *array, int size)
 {
 	t_partition_info	info;
 
+	info.di = 4;
 	info.push_count = 0;
 	info.push_count_last = 0;
 	info.start = 0;
-	info.original_size = size / 4;
-	info.part_size = info.original_size;
-	info.array_size = size - (size % 4);
+	info.part_size = size / info.di;
+	info.array_size = size - (size % info.di);
 	process_b(a, b, array, &info);
 	while (*b)
 	{

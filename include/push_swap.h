@@ -28,11 +28,11 @@ typedef struct s_node
 typedef struct s_parition_info
 {
 	int	part_size;
-	int	original_size;
 	int	start;
 	int	push_count;
 	int	array_size;
-	int push_count_last;
+	int	push_count_last;
+	int	di;
 }	t_partition_info;
 
 void	ra(t_Node **a);
@@ -54,6 +54,6 @@ t_Node	*find_smallest(t_Node **list);
 int		ft_atoi(const char *str, t_Node **list);
 int		*quick_fill_sort(t_Node **a, int argc);
 int		is_arranged(t_Node **list);
-int 	get_position(t_Node **list, int target);
+int		get_position(t_Node **list, int target);
 
 #endif
