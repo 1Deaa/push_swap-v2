@@ -35,6 +35,23 @@ static void	insert_end(t_Node **list, int value)
 	}
 }
 
+int	get_position(t_Node **list, int target)
+{
+	int		pos;
+	t_Node	*loop;
+
+	loop = *list;
+	pos = 0;
+	while (loop)
+	{
+		if (loop->data == target)
+			return (pos);
+		loop = loop->next;
+		pos++;
+	}
+	return (-1);
+}
+
 void	fill_list(t_Node **list, char **argv, int argc)
 {
 	int			i;

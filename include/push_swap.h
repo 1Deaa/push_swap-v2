@@ -53,5 +53,6 @@ t_Node	*find_smallest(t_Node **list);
 int		ft_atoi(const char *str, t_Node **list);
 int		*quick_fill_sort(t_Node **a, int argc);
 int		is_arranged(t_Node **list);
+int 	get_position(t_Node **list, int target);
 
 #endif

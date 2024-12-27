@@ -13,8 +13,8 @@ CFLAGS = -g -Wall -Wextra -Werror -I include
 MAKEFLAGS += --no-print-directory
 
 #COMMANDS
-CC = cc
-RM = rm -rf
+CC 	= cc
+RM 	= rm -rf
 
 #COLORS
 DEF_COLOR = \e[1;39m
