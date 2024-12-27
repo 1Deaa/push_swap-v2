@@ -32,6 +32,7 @@ typedef struct s_parition_info
 	int	start;
 	int	push_count;
 	int	array_size;
+	int push_count_last;
 }	t_partition_info;
 
 void	ra(t_Node **a);

@@ -26,7 +26,7 @@ static int	search_array(int *array, int target, int start, int end)
 	return (0);
 }
 
-static void	divide(t_Node **b, int partition_size)
+/*static void	divide(t_Node **b, int partition_size)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ static void	divide(t_Node **b, int partition_size)
 		rb(b);
 		i++;
 	}
-}
+}*/
 
 void	process_a(t_Node **a, t_Node **b, int size)
 {
@@ -60,23 +60,24 @@ void	process_a(t_Node **a, t_Node **b, int size)
 
 void	process_b(t_Node **a, t_Node **b, int *array, t_partition_info *info)
 {
-	while (info->push_count <= (info->array_size) - 1)
+	while ((info->array_size - info->push_count) / 4)
 	{
 		if (info->push_count == info->part_size)
 		{
-			info->part_size += info->original_size;
-			info->start += info->original_size;
-			if (info->push_count != info->original_size)
-				divide(b, info->original_size);
+			info->part_size += (info->array_size - info->push_count) / 4;
+			info->start += info->push_count_last;
+			//if (info->push_count != info->original_size)
+				//divide(b, info->original_size);
 		}
 		if (search_array(array, (*a)->data, info->start, info->part_size - 1))
 		{
 			pb(a, b);
 			info->push_count++;
+			info->push_count_last = info->part_size - info->start;
 		}
 		ra(a);
 	}
-	divide(b, info->original_size);
+	//divide(b, info->original_size);
 	while (*a)
 		pb(a, b);
 }
@@ -86,10 +87,11 @@ void	big_sort(t_Node **a, t_Node **b, int *array, int size)
 	t_partition_info	info;
 
 	info.push_count = 0;
+	info.push_count_last = 0;
 	info.start = 0;
-	info.original_size = size / 7;
+	info.original_size = size / 4;
 	info.part_size = info.original_size;
-	info.array_size = size - (size % 7);
+	info.array_size = size - (size % 4);
 	process_b(a, b, array, &info);
 	while (*b)
 	{
