@@ -18,7 +18,6 @@ int	main(int argc, char **argv)
 	t_Node	*b;
 	int		*array;
 
-	(void)array;
 	b = NULL;
 	a = NULL;
 	fill_list(&a, argv, argc);
