@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 		deallocate_list(&a);
 		return (0);
 	}
-	else if (argc < 6)
+	else if (argc < 7)
 	{
 		tiny_sort(&a, &b, argc);
 		deallocate_list(&a);
