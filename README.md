@@ -28,11 +28,13 @@ Stack A unsorted
 
 Stack B partitioned
 <div>
-<img src="https://github.com/user-attachments/assets/60b2495a-db6e-4801-a593-a1c2b555d579" width="450" height="400">
+<img src="https://github.com/user-attachments/assets/cb00cc35-85f5-41c0-962f-d58edda55dbf" width="450" height="400">
 </div>
 
 Stack A sorted
-
+<div>
+<img src="https://github.com/user-attachments/assets/55b8ecbd-76f4-462d-a3c8-24aa3b1c2ac9" width="450" height="400">
+</div>
 
 ##### Visualizer Source:
 ##### [Visualizer](https://github.com/o-reo/push_swap_visualizer) - Made by o-reo
