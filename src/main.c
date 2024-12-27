@@ -30,7 +30,6 @@ int	main(int argc, char **argv)
 	else if (argc < 6)
 	{
 		tiny_sort(&a, &b, argc);
-		print_list(&a);
 		deallocate_list(&a);
 		return (0);
 	}
