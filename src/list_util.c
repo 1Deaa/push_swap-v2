@@ -64,18 +64,6 @@ void	fill_list(t_Node **list, char **argv, int argc)
 	}
 }
 
-void	print_list(t_Node **list)
-{
-	t_Node	*curr;
-
-	curr = *list;
-	while (curr != NULL)
-	{
-		ft_printf("Data %d\n", curr->data);
-		curr = curr->next;
-	}
-}
-
 void	deallocate_list(t_Node **list)
 {
 	t_Node	*curr;
@@ -89,4 +77,24 @@ void	deallocate_list(t_Node **list)
 		free(temp);
 	}
 	*list = NULL;
+}
+
+int	check_duplicate(t_Node **list)
+{
+	t_Node	*current;
+	t_Node	*checker;
+
+	current = *list;
+	while (current != NULL)
+	{
+		checker = current->next;
+		while (checker != NULL)
+		{
+			if (checker->data == current->data)
+				handle_error(list);
+			checker = checker->next;
+		}
+		current = current->next;
+	}
+	return (0);
 }

@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	a = NULL;
 	fill_list(&a, argv, argc);
-	if (is_arranged(&a) == 1 || argc < 3)
+	if (check_duplicate(&a) == 1 || is_arranged(&a) == 1 || argc < 3)
 	{
 		deallocate_list(&a);
 		return (0);

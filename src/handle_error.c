@@ -15,6 +15,6 @@
 void	handle_error(t_Node **list)
 {
 	deallocate_list(list);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(2);
 }

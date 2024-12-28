@@ -9,7 +9,7 @@ SRCS_DIR= src
 SRCS	= $(addprefix $(SRCS_DIR)/, $(FILES))
 
 #FLAGS
-CFLAGS = -g -Wall -Wextra -Werror -I include
+CFLAGS = -Wall -Wextra -Werror -I include
 MAKEFLAGS += --no-print-directory
 
 #COMMANDS

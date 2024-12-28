@@ -47,7 +47,6 @@ void	tiny_sort(t_Node **a, t_Node **b, int argc);
 void	handle_error(t_Node **list);
 void	deallocate_list(t_Node **list);
 void	fill_list(t_Node **list, char **argv, int argc);
-void	print_list(t_Node **list);
 void	big_sort(t_Node **a, t_Node **b, int *array, int size);
 t_Node	*find_highest(t_Node **list);
 t_Node	*find_smallest(t_Node **list);
@@ -55,5 +54,6 @@ int		ft_atoi(const char *str, t_Node **list);
 int		*quick_fill_sort(t_Node **a, int argc);
 int		is_arranged(t_Node **list);
 int		get_position(t_Node **list, int target);
+int		check_duplicate(t_Node **list);
 
 #endif
