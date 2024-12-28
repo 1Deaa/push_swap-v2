@@ -21,6 +21,10 @@ Push_swap creates for you a list of instructions that sorts integers using 2 sta
 | `rrr` | reverse rotate a + reverse rotate b | both `rra` and `rrb`                                   |
 
 ## Algorithm
+Partition stack A into 4 parts and push the first part to B then
+partition the remaining elements in A into 4 parts and push to B repeat till
+there's nothing in A then return the largest value to A until B is empty
+
 Stack A unsorted
 <div>
 <img src="https://github.com/user-attachments/assets/be2b524e-1ea1-4887-830e-afa3cba871ce" width="450" height="400">
