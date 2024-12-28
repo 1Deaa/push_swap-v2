@@ -74,6 +74,8 @@ void	big_sort(t_Node **a, t_Node **b, int *array, int size)
 	t_partition_info	info;
 
 	info.di = 4;
+	if (size >= 250)
+		info.di = 7;
 	info.push_count = 0;
 	info.push_count_last = 0;
 	info.start = 0;
