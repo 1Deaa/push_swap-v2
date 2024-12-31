@@ -31,6 +31,8 @@ int	ft_atoi(const char *str, t_Node **list)
 		str++;
 	if (*str == '-')
 	{
+		if (!((*(str + 1) >= '0') && (*(str + 1) <= '9')))
+			handle_error(list);
 		sign = -1;
 		str++;
 	}
